@@ -28,7 +28,7 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
-        context: /Interface Web
-        file: ./Dockerfile
+        context: .
+        file: ./Interface Web/Dockerfile
         push: true
         tags:  fabioabreuuma/clockbox:latest
