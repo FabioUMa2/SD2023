@@ -1,0 +1,29 @@
+version: "3.7"
+
+
+services:
+  app: 
+    image: meu-servidor-web6
+    ports:
+      - 89:80
+    working_dir: /app
+    volumes:
+      - ./index.php:/var/www/html/index.php
+    environment:
+      MYSQL_HOST: 127.0.0.1
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_DB: sd23
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3333:3306
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sd23
+
+volumes:
+  todo-mysql-data:
