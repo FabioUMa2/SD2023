@@ -1,9 +1,9 @@
 <?php
 // conexão com a base de dados
-$servername = "sd23"; // nome do servidor 
+$servername = "mysql"; // nome do servidor 
 $username = "root";
 $password = "root";
-$database = "tabelaEvento"; //nome da tabela 
+$database = "sd23"; //nome da tabela 
 $port = 3333; // porta 
 
 // Conexão com a base de dados
