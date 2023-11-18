@@ -1,8 +1,8 @@
 <?php
-$servername = "sd23";
-$username = "root";
-$password = "root";
-$dbname = "tabelaEvento";
+$servername = ${MYSQL_DB};
+$username = ${MYSQL_USER};
+$password = ${MYSQL_PASSWORD};
+$dbname = ${MYSQL_DB_NAME};
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -3,17 +3,17 @@ version: "3.7"
 
 services:
   app: 
-    image: meu-servidor-web6
+    image: meu-servidor-web7
     ports:
       - 89:80
     working_dir: /app
     volumes:
       - ./index.php:/var/www/html/index.php
-    environment:
-      MYSQL_HOST: 127.0.0.1
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_DB: sd23
+    environment:     
+    -  MYSQL_HOST=${MYSQL_HOST}
+    -  MYSQL_USER=${MYSQL_USER}
+    -  MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    -  MYSQL_DB=${MYSQL_DB}
 
   mysql:
     image: mysql:latest
@@ -22,8 +22,11 @@ services:
     volumes:
       - todo-mysql-data:/var/lib/mysql
     environment: 
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: sd23
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB}
 
 volumes:
   todo-mysql-data:
+
+
+  

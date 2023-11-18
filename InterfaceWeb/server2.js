@@ -2,17 +2,31 @@ const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
+const yaml = require('js-yaml');
 const path = require('path');
+const fs = require('fs');
+const base64 = require('base-64');
+require('dotenv').config(); // Adiciona suporte para variáveis de ambiente
 
 const app = express();
 
+// Carregar as configurações do arquivo secret.yaml
+const config = yaml.load(fs.readFileSync('secret.yaml', 'utf8'));
+
+// Decodificar as informações de configuração da Base64
+config.database.host = base64.decode(config.database.host);
+config.database.user = base64.decode(config.database.user);
+config.database.password = base64.decode(config.database.password);
+config.database.database = base64.decode(config.database.database);
+config.database.port = base64.decode(config.database.port);
+
 // Configuração da conexão com o MySQL
 const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'root',
-  database: 'sd23',
-  port: 3333
+  host: config.database.host,
+  user: config.database.user,
+  password: config.database.password,
+  database: config.database.database,
+  port: config.database.port
 });
 
 // Teste da conexão
@@ -23,6 +37,7 @@ connection.connect((err) => {
     console.log('Conexão bem-sucedida ao MySQL!');
   }
 });
+
 
 // Configuração para lidar com dados do formulário
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -63,7 +78,7 @@ app.get('/', (req, res) => {
 });
 
 // Iniciar o servidor na porta 3000
-const PORT = 3005;
+const PORT = 3009;
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
