@@ -35,16 +35,38 @@
             <h2 class="text-center">Inserir Evento</h2>
             <form action="/" method="post">
                 <div class="mb-3">
-                    <label for="nome" class="form-label">Nome:</label>
-                    <input type="text" class="form-control" id="nome" name="nome" required>
-                    <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                  <label for="nome" class="form-label">Nome:</label>
+                  <input type="text" class="form-control" id="nome" name="nome" required>
+                  <div class="invalid-feedback">Por favor, preencha este campo.</div>
                 </div>
                 <div class="mb-3">
-                    <label for="idade" class="form-label">Idade:</label>
-                    <input type="number" class="form-control" id="idade" name="idade" required>
-                    <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                  <label for="data" class="form-label">Data:</label>
+                  <input type="date" class="form-control" id="data" name="data" required>
+                <div class="invalid-feedback">Por favor, preencha este campo.</div>
                 </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Inserir Dados">
+                <div class="mb-3">
+                  <label for="localidade" class="form-label">Localidade:</label>
+                  <select name="localidade" class="form-label">
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                  </select>
+                <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="tipo-evento" class="form-label">Tipo:</label>
+                  <select name="tipo-evento" class="form-label">
+                    <option value="option1">Option1</option>
+                    <option value="option2">Option2</option>
+                    <option value="option3">Option3</option>
+                  </select>
+                <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="descricao" class="form-label">Descrição:</label>
+                  <input type="text" class="form-control" id="descricao" name="descricao" required>
+                  <div class="invalid-feedback">Por favor, preencha este campo.</div>
+                </div>
             </form>
         </div>
     </div>
